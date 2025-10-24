@@ -45,7 +45,7 @@ export class AuthService {
       }
       return user;
     } catch (err) {
-      throw new UnauthorizedException('Credentials not valid');
+      throw new UnauthorizedException('Credentials not valid' + err);
     }
   }
 }
