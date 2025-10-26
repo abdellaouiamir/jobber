@@ -29,11 +29,13 @@ export class GqlAuthGuard implements CanActivate, OnModuleInit {
   ): boolean | Promise<boolean> | Observable<boolean> {
     const token = this.getRequest(context).cookies?.Authentication;
     if (!token) {
+      this.logger.log('rejected');
       return false;
     }
     return this.authService.authenticate({ token }).pipe(
       map((res) => {
         this.logger.log(res);
+        this.getRequest(context).user = res;
         return true;
       }),
       catchError((err) => {
