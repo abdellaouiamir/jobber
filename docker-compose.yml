@@ -5,3 +5,14 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: amir
+    volumes:
+      - jobberDB:/var/lib/postgresql/data:rw
+
+  pulsar:
+    image: apachepulsar/pulsar
+    command: >
+      /pulsar/bin/pulsar standalone
+    ports:
+      - 6650:6650
+volumes:
+  jobberDB:

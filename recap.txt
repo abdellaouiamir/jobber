@@ -1,0 +1,51 @@
+npx create-nx-workspace --preset nest --name jobber --appName jobber-auth
+
+
+nx serve jobber-auth
+nx test jobber-auth
+nx lint jobber-auth
+
+npm i prisma --save-dev
+npm i @prisma/client --save
+
+
+nx g module prisma
+nx g service prisma
+
+npm i @nestjs/graphql @nestjs/apollo @apollo/server graphql --save
+nx g library libs/nestjs
+nx g resolver users
+nx g service users
+
+npm i --save class-transformer class-validator
+npm i --save bcryptjs
+npm i --save @types/bcryptjs
+
+npm i --save-dev husky lint-staged
+npx husky init
+
+npm -i --save @nestjs/config
+
+npm -i --save @nestjs/jwt
+npm i passport-jwt @nestjs/passport passport
+npm i --save-dev @types/passport-jwt
+
+
+npm i --save cookie-parser
+npm i --save-dev @types/cookie-parser
+
+
+
+nx g application jobber-job
+npm i --save @golevelup/nestjs-discovery
+
+npm i --save @grpc/grpc-js @grpc/proto-loader @nestjs/microservices ts-proto
+
+protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./types ./proto/*.proto --ts_proto_opt=nestJs=true
+pacman -S protobuf
+
+pacman -S nodejs
+pacman -S npm
+pacman -S yarn
+
+npm i pulsar-client
